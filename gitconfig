@@ -1,0 +1,43 @@
+[user]
+	name = Niket Kandya
+	email = niketkandya@gmail.com
+[alias]
+	root = !pwd
+	discard = reset --hard
+	fix = reset --soft HEAD^
+	unfix = reset HEAD@{1}
+	unedit = checkout --
+	parent = config remote.origin.url
+	co = checkout
+	cob = checkout -b
+	ec = config --global -e
+	lc = config --global -l
+	lcl = config -l
+	ri = rebase -i
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	le = log --oneline --decorate
+	lg = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --graph --all
+	la = "!git config -l | grep alias | cut -c 7-"
+	done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
+	br = branch
+	amend = commit --amend
+	top = rev-parse --verify HEAD
+[branch "master"]
+	rebase = true
+[branch]
+	autosetuprebase = always
+[push]
+	default = matching
+[rerere]
+	enabled = true
+[diff]
+	tool = vimdiff
+[merge]
+	conflictstyle = diff3
+	tool = vimdiff
+[difftool]
+	prompt = true
+[mergetool]
+	prompt = true
